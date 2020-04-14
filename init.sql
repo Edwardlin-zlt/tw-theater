@@ -6,7 +6,7 @@ CREATE TABLE movie
 (
     id             int PRIMARY KEY,
     title          varchar(50),
-    original_title varchar(50),
+    original_title varchar(100),
     durations      varchar(100),
     year           varchar(10),
     countries      varchar(100),
@@ -98,5 +98,6 @@ CREATE TABLE user_review
     id                int PRIMARY KEY AUTO_INCREMENT,
     user_id           int,
     popular_review_id int
-)
+);
 
+SELECT * from movie;
