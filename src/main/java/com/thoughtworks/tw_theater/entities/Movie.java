@@ -1,6 +1,7 @@
 package com.thoughtworks.tw_theater.entities;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 import java.util.Objects;
@@ -8,24 +9,41 @@ import java.util.Objects;
 @Table("movie")
 public class Movie {
     @Id
-    private Integer id;
+    private int id;
     private String title;
+    @Column("original_title")
+    private String original_title;
+    private String year;
+    private String countries;
+    private String pubdate;
+    private String summary;
+    private String image;
+    private String languages;
     private String directors;
+    private String casts;
 
     public Movie() {
     }
 
-    public Movie(Integer id, String title, String directors) {
+    public Movie(int id, String title, String original_title, String year, String countries, String pubdate, String summary, String image, String languages, String directors, String casts) {
         this.id = id;
         this.title = title;
+        this.original_title = original_title;
+        this.year = year;
+        this.countries = countries;
+        this.pubdate = pubdate;
+        this.summary = summary;
+        this.image = image;
+        this.languages = languages;
         this.directors = directors;
+        this.casts = casts;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -37,6 +55,62 @@ public class Movie {
         this.title = title;
     }
 
+    public String getOriginal_title() {
+        return original_title;
+    }
+
+    public void setOriginal_title(String original_title) {
+        this.original_title = original_title;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public String getCountries() {
+        return countries;
+    }
+
+    public void setCountries(String countries) {
+        this.countries = countries;
+    }
+
+    public String getPubdate() {
+        return pubdate;
+    }
+
+    public void setPubdate(String pubdate) {
+        this.pubdate = pubdate;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getLanguages() {
+        return languages;
+    }
+
+    public void setLanguages(String languages) {
+        this.languages = languages;
+    }
+
     public String getDirectors() {
         return directors;
     }
@@ -45,12 +119,28 @@ public class Movie {
         this.directors = directors;
     }
 
+    public String getCasts() {
+        return casts;
+    }
+
+    public void setCasts(String casts) {
+        this.casts = casts;
+    }
+
     @Override
     public String toString() {
         return "Movie{" +
             "id=" + id +
             ", title='" + title + '\'' +
+            ", original_title='" + original_title + '\'' +
+            ", year='" + year + '\'' +
+            ", countries='" + countries + '\'' +
+            ", pubdate='" + pubdate + '\'' +
+            ", summary='" + summary + '\'' +
+            ", image='" + image + '\'' +
+            ", languages='" + languages + '\'' +
             ", directors='" + directors + '\'' +
+            ", casts='" + casts + '\'' +
             '}';
     }
 
@@ -59,13 +149,21 @@ public class Movie {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Movie movie = (Movie) o;
-        return Objects.equals(id, movie.id) &&
+        return id == movie.id &&
             Objects.equals(title, movie.title) &&
-            Objects.equals(directors, movie.directors);
+            Objects.equals(original_title, movie.original_title) &&
+            Objects.equals(year, movie.year) &&
+            Objects.equals(countries, movie.countries) &&
+            Objects.equals(pubdate, movie.pubdate) &&
+            Objects.equals(summary, movie.summary) &&
+            Objects.equals(image, movie.image) &&
+            Objects.equals(languages, movie.languages) &&
+            Objects.equals(directors, movie.directors) &&
+            Objects.equals(casts, movie.casts);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, directors);
+        return Objects.hash(id, title, original_title, year, countries, pubdate, summary, image, languages, directors, casts);
     }
 }
