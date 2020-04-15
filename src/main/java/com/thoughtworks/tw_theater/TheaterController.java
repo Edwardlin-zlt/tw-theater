@@ -3,6 +3,7 @@ package com.thoughtworks.tw_theater;
 import com.thoughtworks.tw_theater.entities.Movie;
 import com.thoughtworks.tw_theater.entities.PopularViews;
 import com.thoughtworks.tw_theater.entities.Rating;
+import com.thoughtworks.tw_theater.entities.Video;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -42,8 +43,13 @@ public class TheaterController {
     }
 
     @GetMapping("/theater_api/popular_views/{movieId}")
-    public PopularViews getPopularViewsByMovieId(@PathVariable Integer movieId){
+    public List<PopularViews> getPopularViewsByMovieId(@PathVariable Integer movieId){
         return moviesService.getPopularViewsByMovieId(movieId);
+    }
+
+    @GetMapping("/theater_api/videos/{movieId}")
+    public List<Video> getVideoByMovieId(@PathVariable Integer movieId) {
+        return moviesService.getVideoByMovieId(movieId);
     }
 
     @CrossOrigin

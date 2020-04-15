@@ -1,7 +1,9 @@
 package com.thoughtworks.tw_theater;
 
 import com.thoughtworks.tw_theater.entities.Movie;
+import com.thoughtworks.tw_theater.entities.PopularViews;
 import com.thoughtworks.tw_theater.entities.Rating;
+import com.thoughtworks.tw_theater.entities.Video;
 import com.thoughtworks.tw_theater.repositories.MovieRepository;
 import com.thoughtworks.tw_theater.repositories.PopularViewsRepository;
 import com.thoughtworks.tw_theater.repositories.RatingRepository;
@@ -36,18 +38,28 @@ public class MoviesService {
         return movieRepository.findAll();
     }
 
-    public Rating getRatingByMovieId(Integer movieId){
+    public Rating getRatingByMovieId(Integer movieId) {
         return ratingRepository.findByMovieId(movieId);
     }
 
+    public List<PopularViews> getPopularViewsByMovieId(Integer movieId) {
+        return popularViewsRepository.findByMovieId(movieId);
+    }
 
-    public List<Movie> getSimpleMovieInfo(){return movieRepository.simpleAllMovieInfo();}
+    public List<Video> getVideoByMovieId(Integer movieId) {
+        return videoRepository.findByMovieId(movieId);
+    }
 
-    public List<Movie> getSimpleMovieInfo(Integer page){
-        if(page*20<250){
-            return movieRepository.simplePageMovieInfo((page-1)*20);
+    public List<Movie> getSimpleMovieInfo() {
+        return movieRepository.simpleAllMovieInfo();
+    }
+
+    public List<Movie> getSimpleMovieInfo(Integer page) {
+        if (page * 20 < 250) {
+            return movieRepository.simplePageMovieInfo((page - 1) * 20);
         } else {
-            return movieRepository.simpleLastMovieInfo((page-1)*20, 250-(page-1)*20);
+            return movieRepository.simpleLastMovieInfo((page - 1) * 20, 250 - (page - 1) * 20);
         }
     }
+
 }
