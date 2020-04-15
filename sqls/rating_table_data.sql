@@ -1,4 +1,3 @@
-use tw_theater;
 insert INTO rating(min, max, average, stars, movie_id) VALUES
 ('0', '10', '9.7', '50', '1292052'),
 ('0', '10', '9.6', '50', '1291546'),
