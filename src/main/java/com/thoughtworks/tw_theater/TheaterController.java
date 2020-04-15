@@ -50,4 +50,7 @@ public class TheaterController {
     @GetMapping("/simpleAllMovieInfo")
     public List<Movie> getAllSimpleMovieInfo(){ return moviesService.getSimpleMovieInfo(); }
 
+    @CrossOrigin
+    @GetMapping("/simplePageMovieInfo/{page}")
+    public List<Movie> getPageSimpleMovieInfo(@PathVariable Integer page) { return moviesService.getSimpleMovieInfo(page); }
 }
