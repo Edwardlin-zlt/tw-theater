@@ -66,6 +66,10 @@ public class MoviesService {
         return movieRepository.findMoviesFromIdToCount(start, count);
     }
 
+    public List<Movie> searchSimpleMovieInfo(String searchInfo) {
+        return movieRepository.searchSimpleMovieInfo(searchInfo);
+    }
+
     public List<Movie> searchGenreSimpleMovieInfo(String genre) {
         return movieRepository.searchGenreSimpleMovieInfo(genre);
     }

@@ -8,9 +8,28 @@
 ## API 需求分析
 
 - 首页API
-    - 
+    
+- 返回所有电影信息
+    
+      > localhost:8080/simpleAllMovieInfo
+    
+    - 根据page页码返回电影信息
+    
+      > localhost:8080/simpleAllMovieInfo/{page}
+    
+- 类型页API
 
-- 搜素页API
+    * 根据类型返回匹配电影信息
+
+      > ```
+      > localhost:8080/searchGenreSimpleMoviesInfo/{genre}
+      > ```
+
+- 搜索页API
+
+    * 根据搜索关键字返回匹配电影信息
+
+      >  localhost:8080/searchSimpleMovieInfo/{searchInfo}
 
 - 详情页API
     - 根据 `id` 返回电影详情数据
