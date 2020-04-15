@@ -32,11 +32,11 @@ public class MoviesService {
 
     public List<Movie> getSimpleMovieInfo(){return movieRepository.simpleAllMovieInfo();}
 
-    public Movie getSimpleMovieInfo(Integer page){
+    public List<Movie> getSimpleMovieInfo(Integer page){
         if(page*20<250){
             return movieRepository.simplePageMovieInfo((page-1)*20);
         } else {
-            return movieRepository.simpleLastMovieInfo((page-1)*20, 250-page*20);
+            return movieRepository.simpleLastMovieInfo((page-1)*20, 250-(page-1)*20);
         }
     }
 }
