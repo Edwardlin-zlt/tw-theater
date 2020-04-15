@@ -12,7 +12,7 @@ public class Movie {
     private int id;
     private String title;
     @Column("original_title")
-    private String original_title;
+    private String originalTitle;
     private String year;
     private String countries;
     private String pubdate;
@@ -25,10 +25,10 @@ public class Movie {
     public Movie() {
     }
 
-    public Movie(int id, String title, String original_title, String year, String countries, String pubdate, String summary, String image, String languages, String directors, String casts) {
+    public Movie(int id, String title, String originalTitle, String year, String countries, String pubdate, String summary, String image, String languages, String directors, String casts) {
         this.id = id;
         this.title = title;
-        this.original_title = original_title;
+        this.originalTitle = originalTitle;
         this.year = year;
         this.countries = countries;
         this.pubdate = pubdate;
@@ -55,12 +55,12 @@ public class Movie {
         this.title = title;
     }
 
-    public String getOriginal_title() {
-        return original_title;
+    public String getOriginalTitle() {
+        return originalTitle;
     }
 
-    public void setOriginal_title(String original_title) {
-        this.original_title = original_title;
+    public void setOriginalTitle(String originalTitle) {
+        this.originalTitle = originalTitle;
     }
 
     public String getYear() {
@@ -132,7 +132,7 @@ public class Movie {
         return "Movie{" +
             "id=" + id +
             ", title='" + title + '\'' +
-            ", original_title='" + original_title + '\'' +
+            ", originalTitle='" + originalTitle + '\'' +
             ", year='" + year + '\'' +
             ", countries='" + countries + '\'' +
             ", pubdate='" + pubdate + '\'' +
@@ -151,7 +151,7 @@ public class Movie {
         Movie movie = (Movie) o;
         return id == movie.id &&
             Objects.equals(title, movie.title) &&
-            Objects.equals(original_title, movie.original_title) &&
+            Objects.equals(originalTitle, movie.originalTitle) &&
             Objects.equals(year, movie.year) &&
             Objects.equals(countries, movie.countries) &&
             Objects.equals(pubdate, movie.pubdate) &&
@@ -164,6 +164,6 @@ public class Movie {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, original_title, year, countries, pubdate, summary, image, languages, directors, casts);
+        return Objects.hash(id, title, originalTitle, year, countries, pubdate, summary, image, languages, directors, casts);
     }
 }
