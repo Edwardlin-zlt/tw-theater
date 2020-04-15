@@ -14,9 +14,9 @@ public class DataSourceConfig {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/tw_theater?useUnicode=true&characterEncoding=utf-8");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/tw_theater?useUnicode=true&characterEncoding=utf-8&serverTimezone=Hongkong");
         dataSource.setUsername("root");
-        dataSource.setPassword("password");
+        dataSource.setPassword("19950603abc");
         return dataSource;
     }
 }

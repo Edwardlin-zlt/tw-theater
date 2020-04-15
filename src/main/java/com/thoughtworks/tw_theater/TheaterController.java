@@ -77,4 +77,8 @@ public class TheaterController {
     @CrossOrigin
     @GetMapping("/simplePageMovieInfo/{page}")
     public List<Movie> getPageSimpleMovieInfo(@PathVariable Integer page) { return moviesService.getSimpleMovieInfo(page); }
+
+    @CrossOrigin
+    @GetMapping("/searchGenreSimpleMoviesInfo/{genre}")
+    public List<Movie> getSearchGenreSimpleMoviesInfo(@PathVariable String genre) { return moviesService.searchGenreSimpleMovieInfo(genre); }
 }

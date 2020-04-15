@@ -19,4 +19,7 @@ public interface MovieRepository extends CrudRepository<Movie, Integer> {
 
     @Query(("SELECT * FROM movie LIMIT :start, :last"))
     List<Movie> simpleLastMovieInfo(@Param("start") Integer start, @Param("last") Integer last);
+
+    @Query("SELECT * FROM movie WHERE locate(:genre, genres)>0")
+    List<Movie> searchGenreSimpleMovieInfo(@Param("genre") String genres);
 }
