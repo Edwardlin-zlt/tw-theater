@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface MovieRepository extends CrudRepository<Movie, Integer> {
-    @Query("select * from movie order by id limit:start,:count")
+    @Query("select * from movie order by id limit :start,:count")
     Iterable<Movie> findMoviesFromIdToCount(@Param("start") Integer start, @Param("count") Integer count);
 
     @Query("SELECT * FROM movie")

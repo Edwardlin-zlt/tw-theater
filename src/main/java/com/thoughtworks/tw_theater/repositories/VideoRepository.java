@@ -8,6 +8,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface VideoRepository extends CrudRepository<Video, Integer> {
-    @Query("SELECT id, source, sample_link, need_pay, movie_id from video WHERE movie_id =:movieId;")
+    @Query("SELECT id, name, source, sample_link, need_pay, movie_id from video WHERE movie_id =:movieId;")
     List<Video> findByMovieId(@Param("movieId") Integer id);
 }

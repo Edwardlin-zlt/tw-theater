@@ -14,15 +14,17 @@ public class PopularViews {
     private String author;
     @Column("movie_id")
     private int movieId;
+    private String title;
 
     public PopularViews() {
     }
 
-    public PopularViews(int id, String summary, String author, int movieId) {
+    public PopularViews(int id, String summary, String author, int movieId, String title) {
         this.id = id;
         this.summary = summary;
         this.author = author;
         this.movieId = movieId;
+        this.title = title;
     }
 
     public int getId() {
@@ -57,6 +59,14 @@ public class PopularViews {
         this.movieId = movieId;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     @Override
     public String toString() {
         return "PopularViews{" +
@@ -64,6 +74,7 @@ public class PopularViews {
             ", summary='" + summary + '\'' +
             ", author='" + author + '\'' +
             ", movieId=" + movieId +
+            ", title='" + title + '\'' +
             '}';
     }
 
@@ -75,11 +86,12 @@ public class PopularViews {
         return id == that.id &&
             movieId == that.movieId &&
             Objects.equals(summary, that.summary) &&
-            Objects.equals(author, that.author);
+            Objects.equals(author, that.author) &&
+            Objects.equals(title, that.title);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, summary, author, movieId);
+        return Objects.hash(id, summary, author, movieId, title);
     }
 }

@@ -8,6 +8,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface PopularViewsRepository extends CrudRepository<PopularViews, Integer> {
-    @Query("SELECT id, summary, author, movie_id from popular_review WHERE movie_id =:movieId;")
+    @Query("SELECT id, title, summary, author, movie_id from popular_review WHERE movie_id =:movieId;")
     List<PopularViews> findByMovieId(@Param("movieId") Integer id);
 }

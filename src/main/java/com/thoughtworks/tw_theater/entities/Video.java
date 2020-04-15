@@ -17,16 +17,18 @@ public class Video {
     private boolean needPay;
     @Column("movie_id")
     private int movieId;
+    private String name;
 
     public Video() {
     }
 
-    public Video(int id, String source, String sampleLink, boolean needPay, int movieId) {
+    public Video(int id, String source, String sampleLink, boolean needPay, int movieId, String name) {
         this.id = id;
         this.source = source;
         this.sampleLink = sampleLink;
         this.needPay = needPay;
         this.movieId = movieId;
+        this.name = name;
     }
 
     public int getId() {
@@ -69,6 +71,14 @@ public class Video {
         this.movieId = movieId;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
         return "Video{" +
@@ -77,6 +87,7 @@ public class Video {
             ", sampleLink='" + sampleLink + '\'' +
             ", needPay=" + needPay +
             ", movieId=" + movieId +
+            ", name='" + name + '\'' +
             '}';
     }
 
@@ -89,11 +100,12 @@ public class Video {
             needPay == video.needPay &&
             movieId == video.movieId &&
             Objects.equals(source, video.source) &&
-            Objects.equals(sampleLink, video.sampleLink);
+            Objects.equals(sampleLink, video.sampleLink) &&
+            Objects.equals(name, video.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, source, sampleLink, needPay, movieId);
+        return Objects.hash(id, source, sampleLink, needPay, movieId, name);
     }
 }

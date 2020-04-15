@@ -22,11 +22,12 @@ public class Movie {
     private String directors;
     private String casts;
     private String genres;
+    private float rating;
 
     public Movie() {
     }
 
-    public Movie(int id, String title, String originalTitle, String year, String countries, String pubdate, String summary, String images, String languages, String directors, String casts, String genres) {
+    public Movie(int id, String title, String originalTitle, String year, String countries, String pubdate, String summary, String images, String languages, String directors, String casts, String genres, float rating) {
         this.id = id;
         this.title = title;
         this.originalTitle = originalTitle;
@@ -39,6 +40,7 @@ public class Movie {
         this.directors = directors;
         this.casts = casts;
         this.genres = genres;
+        this.rating = rating;
     }
 
     public int getId() {
@@ -137,6 +139,14 @@ public class Movie {
         this.genres = genres;
     }
 
+    public float getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
     @Override
     public String toString() {
         return "Movie{" +
@@ -152,6 +162,7 @@ public class Movie {
             ", directors='" + directors + '\'' +
             ", casts='" + casts + '\'' +
             ", genres='" + genres + '\'' +
+            ", rating=" + rating +
             '}';
     }
 
@@ -161,6 +172,7 @@ public class Movie {
         if (o == null || getClass() != o.getClass()) return false;
         Movie movie = (Movie) o;
         return id == movie.id &&
+            rating == movie.rating &&
             Objects.equals(title, movie.title) &&
             Objects.equals(originalTitle, movie.originalTitle) &&
             Objects.equals(year, movie.year) &&
@@ -176,6 +188,6 @@ public class Movie {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, originalTitle, year, countries, pubdate, summary, images, languages, directors, casts, genres);
+        return Objects.hash(id, title, originalTitle, year, countries, pubdate, summary, images, languages, directors, casts, genres, rating);
     }
 }

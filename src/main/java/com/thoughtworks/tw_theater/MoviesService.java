@@ -62,4 +62,7 @@ public class MoviesService {
         }
     }
 
+    public Iterable<Movie> findMoviesFromIdToCount(Integer start, Integer count){
+        return movieRepository.findMoviesFromIdToCount(start, count);
+    }
 }

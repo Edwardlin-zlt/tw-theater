@@ -17,25 +17,16 @@ CREATE TABLE movie
     images         text,
     languages      text,
     directors      text,
-    casts          text
+    casts          text,
+    rating         float
 ) ENGINE InnoDB
   DEFAULT CHARSET utf8mb4;
 
-
-CREATE TABLE rating
-(
-    id       int PRIMARY KEY AUTO_INCREMENT,
-    min      tinyint UNSIGNED,
-    max      tinyint UNSIGNED,
-    average  tinyint UNSIGNED,
-    stars    tinyint UNSIGNED,
-    movie_id int
-) ENGINE InnoDB
-  DEFAULT CHARSET utf8mb4;
 
 CREATE TABLE video
 (
     id          int PRIMARY KEY AUTO_INCREMENT,
+    name        varchar(100),
     source      text,
     sample_link varchar(200),
     need_pay    boolean,
@@ -46,6 +37,7 @@ CREATE TABLE video
 CREATE TABLE popular_review
 (
     id       int PRIMARY KEY AUTO_INCREMENT,
+    title varchar(200),
     summary  text,
     author   text,
     movie_id int

@@ -65,6 +65,12 @@ public class TheaterController {
     }
 
     @CrossOrigin
+    @GetMapping("/theater_api/similar")
+    public Iterable<Movie> getMovieFromIdToCount(@RequestParam Integer start, @RequestParam Integer count){
+        return moviesService.findMoviesFromIdToCount(start, count);
+    }
+
+    @CrossOrigin
     @GetMapping("/simpleAllMovieInfo")
     public List<Movie> getAllSimpleMovieInfo(){ return moviesService.getSimpleMovieInfo(); }
 
