@@ -1,7 +1,6 @@
 package com.thoughtworks.tw_theater;
 
 import com.alibaba.fastjson.JSONArray;
-import com.fasterxml.jackson.annotation.JsonAlias;
 import com.thoughtworks.tw_theater.entities.Movie;
 import com.thoughtworks.tw_theater.entities.MovieDetails;
 import com.thoughtworks.tw_theater.entities.PopularViews;
@@ -11,10 +10,10 @@ import com.thoughtworks.tw_theater.repositories.MovieRepository;
 import com.thoughtworks.tw_theater.repositories.PopularViewsRepository;
 import com.thoughtworks.tw_theater.repositories.RatingRepository;
 import com.thoughtworks.tw_theater.repositories.VideoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Iterator;
+import java.util.List;
 
 @Service
 public class MoviesService {
@@ -85,5 +84,15 @@ public class MoviesService {
 
     public Rating getRating(Integer id) {
         return ratingRepository.findById(id).orElse(null);
+    }
+
+    public List<Movie> getSimpleMovieInfo(){return movieRepository.simpleAllMovieInfo();}
+
+    public Movie getSimpleMovieInfo(Integer page){
+        if(page*20<250){
+            return movieRepository.simplePageMovieInfo((page-1)*20);
+        } else {
+            return movieRepository.simpleLastMovieInfo((page-1)*20, 250-page*20);
+        }
     }
 }

@@ -22,6 +22,7 @@ public class Movie {
     private String directors;
     private String casts;
 
+
     public Movie() {
     }
 
@@ -62,6 +63,7 @@ public class Movie {
     public void setOriginalTitle(String originalTitle) {
         this.originalTitle = originalTitle;
     }
+
 
     public String getYear() {
         return year;

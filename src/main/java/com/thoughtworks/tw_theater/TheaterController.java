@@ -3,12 +3,13 @@ package com.thoughtworks.tw_theater;
 import com.thoughtworks.tw_theater.entities.Movie;
 import com.thoughtworks.tw_theater.entities.MovieDetails;
 import com.thoughtworks.tw_theater.entities.Rating;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.security.PublicKey;
+import java.util.List;
 
 @RestController
 public class TheaterController {
@@ -44,4 +45,9 @@ public class TheaterController {
     public Rating getRatingByMovieId(@PathVariable Integer movieId) {
         return moviesService.getRatingByMovieId(movieId);
     }
+
+    @CrossOrigin
+    @GetMapping("/simpleAllMovieInfo")
+    public List<Movie> getAllSimpleMovieInfo(){ return moviesService.getSimpleMovieInfo(); }
+
 }
