@@ -17,16 +17,16 @@ public class Movie {
     private String countries;
     private String pubdate;
     private String summary;
-    private String image;
+    private String images;
     private String languages;
     private String directors;
     private String casts;
-
+    private String genres;
 
     public Movie() {
     }
 
-    public Movie(int id, String title, String originalTitle, String year, String countries, String pubdate, String summary, String image, String languages, String directors, String casts) {
+    public Movie(int id, String title, String originalTitle, String year, String countries, String pubdate, String summary, String images, String languages, String directors, String casts, String genres) {
         this.id = id;
         this.title = title;
         this.originalTitle = originalTitle;
@@ -34,10 +34,11 @@ public class Movie {
         this.countries = countries;
         this.pubdate = pubdate;
         this.summary = summary;
-        this.image = image;
+        this.images = images;
         this.languages = languages;
         this.directors = directors;
         this.casts = casts;
+        this.genres = genres;
     }
 
     public int getId() {
@@ -63,7 +64,6 @@ public class Movie {
     public void setOriginalTitle(String originalTitle) {
         this.originalTitle = originalTitle;
     }
-
 
     public String getYear() {
         return year;
@@ -97,12 +97,12 @@ public class Movie {
         this.summary = summary;
     }
 
-    public String getImage() {
-        return image;
+    public String getImages() {
+        return images;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setImages(String images) {
+        this.images = images;
     }
 
     public String getLanguages() {
@@ -129,6 +129,14 @@ public class Movie {
         this.casts = casts;
     }
 
+    public String getGenres() {
+        return genres;
+    }
+
+    public void setGenres(String genres) {
+        this.genres = genres;
+    }
+
     @Override
     public String toString() {
         return "Movie{" +
@@ -139,10 +147,11 @@ public class Movie {
             ", countries='" + countries + '\'' +
             ", pubdate='" + pubdate + '\'' +
             ", summary='" + summary + '\'' +
-            ", image='" + image + '\'' +
+            ", images='" + images + '\'' +
             ", languages='" + languages + '\'' +
             ", directors='" + directors + '\'' +
             ", casts='" + casts + '\'' +
+            ", genres='" + genres + '\'' +
             '}';
     }
 
@@ -158,14 +167,15 @@ public class Movie {
             Objects.equals(countries, movie.countries) &&
             Objects.equals(pubdate, movie.pubdate) &&
             Objects.equals(summary, movie.summary) &&
-            Objects.equals(image, movie.image) &&
+            Objects.equals(images, movie.images) &&
             Objects.equals(languages, movie.languages) &&
             Objects.equals(directors, movie.directors) &&
-            Objects.equals(casts, movie.casts);
+            Objects.equals(casts, movie.casts) &&
+            Objects.equals(genres, movie.genres);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, originalTitle, year, countries, pubdate, summary, image, languages, directors, casts);
+        return Objects.hash(id, title, originalTitle, year, countries, pubdate, summary, images, languages, directors, casts, genres);
     }
 }
