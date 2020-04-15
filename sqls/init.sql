@@ -3,7 +3,6 @@ CREATE DATABASE tw_theater DEFAULT CHARSET utf8mb4 COLLATE utf8mb4_general_ci;
 
 USE tw_theater;
 
-
 CREATE TABLE movie
 (
     id             int PRIMARY KEY,
@@ -13,8 +12,9 @@ CREATE TABLE movie
     year           varchar(10),
     countries      varchar(100),
     pubdate        varchar(200),
+    genres         text,
     summary        text,
-    image          text,
+    images         text,
     languages      text,
     directors      text,
     casts          text

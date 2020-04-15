@@ -21,32 +21,44 @@ public class TheaterController {
         this.moviesService = moviesService;
     }
 
+
+    @CrossOrigin
     @GetMapping("/index")
     public String getIndex(@RequestParam String name){
         System.out.println(name);
         return moviesService.getIndex();
     }
 
+
+    @CrossOrigin
     @GetMapping("/theater_api/movie/{id}")
     public Movie getMovie(@PathVariable Integer id) {
         return moviesService.getMovie(id);
     }
 
+
+    @CrossOrigin
     @GetMapping("/theater_api/movies")
     public Iterable<Movie> getMovies(){
         return moviesService.getMovies();
     }
 
+
+    @CrossOrigin
     @GetMapping("/theater_api/rating/{movieId}")
     public Rating getRatingByMovieId(@PathVariable Integer movieId) {
         return moviesService.getRatingByMovieId(movieId);
     }
 
+
+    @CrossOrigin
     @GetMapping("/theater_api/popular_views/{movieId}")
     public List<PopularViews> getPopularViewsByMovieId(@PathVariable Integer movieId){
         return moviesService.getPopularViewsByMovieId(movieId);
     }
 
+
+    @CrossOrigin
     @GetMapping("/theater_api/videos/{movieId}")
     public List<Video> getVideoByMovieId(@PathVariable Integer movieId) {
         return moviesService.getVideoByMovieId(movieId);
